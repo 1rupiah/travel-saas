@@ -2,15 +2,15 @@
 
 Available for freelance, consulting, contract, and full-time opportunities.
 
-This repository is part of my professional portfolio and demonstrates practical experienced.
-
 - **📧 Email**: rahmat6hidayat@gmail.com
 - **💼 LinkedIn**: https://www.linkedin.com/in/rahmat6hidayat
 - **📍 Location**: Jakarta, Indonesia
 
-# 🌴 Travel SaaS - Multi-tenant Travel Platform
+This repository showcases a production-grade multi-tenant Travel SaaS platform developed as part of my professional portfolio. It demonstrates software architecture design, backend and frontend engineering, payment gateway integration, tenant isolation, and scalable SaaS application development practices.
 
-Platform travel berbasis SaaS dengan arsitektur multi-tenant. Setiap agen travel mendapat subdomain dan dashboard terpisah.
+# 🌴 Travel SaaS - Multi-Tenant Travel Platform
+
+A SaaS-based travel platform built with a multi-tenant architecture. Each travel agency receives its own dedicated subdomain and isolated dashboard environment.
 
 ## 📸 Screenshots
 
@@ -32,27 +32,28 @@ Platform travel berbasis SaaS dengan arsitektur multi-tenant. Setiap agen travel
 
 - **Backend**: NestJS + TypeORM + PostgreSQL
 - **Frontend**: Vue 3 + Pinia + Tailwind CSS
-- **Payment**: Midtrans Snap
-- **Auth**: JWT + Passport
+- **Payment Gateway**: Midtrans Snap
+- **Authentication**: JWT + Passport
 
-## 🚀 Cara Menjalankan
+## 🚀 Getting Started
 
-### Opsi 1: Docker Compose (Recommended)
+### Option 1: Docker Compose (Recommended)
 
 ```bash
 cp .env.example .env
-# Edit .env, isi MIDTRANS_SERVER_KEY dan MIDTRANS_CLIENT_KEY
+
+# Edit .env and provide MIDTRANS_SERVER_KEY and MIDTRANS_CLIENT_KEY
 
 docker-compose up -d
 ```
 
-App berjalan di:
+Application URLs:
 
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:3000/api
-- **API Docs (Swagger)**: http://localhost:3000/api/docs
+- **API Documentation (Swagger)**: http://localhost:3000/api/docs
 
-### Opsi 2: Manual
+### Option 2: Manual Setup
 
 **Prerequisites**: Node.js 20+, PostgreSQL 15+
 
@@ -60,24 +61,25 @@ App berjalan di:
 # 1. Install dependencies
 npm install
 
-# 2. Setup environment
+# 2. Configure environment variables
 cp .env.example .env
-# Edit .env sesuai konfigurasi database lokal Anda
 
-# 3. Buat database PostgreSQL
+# Update .env with your local database configuration
+
+# 3. Create PostgreSQL database
 createdb travel_saas
 
-# 4. Jalankan migrasi
+# 4. Run database migrations
 npm run db:migrate
 
-# 5. Seed data awal
+# 5. Seed initial data
 npm run db:seed
 
-# 6. Jalankan semua sekaligus
+# 6. Start the application
 npm run dev
 ```
 
-## 👤 Default Accounts (setelah seed)
+## 👤 Default Accounts (After Database Seeding)
 
 | Role         | Email                     | Password      |
 | ------------ | ------------------------- | ------------- |
@@ -85,64 +87,73 @@ npm run dev
 | Tenant Admin | admin@demo-travel.com     | admin123      |
 | Customer     | budi.santoso@gmail.com    | customer123   |
 
-## 📁 Struktur Project
+## 📁 Project Structure
 
-```
+```text
 travel-saas/
 ├── apps/
-│   ├── backend/                 # NestJS API
+│   ├── backend/
 │   │   └── src/
 │   │       ├── modules/
-│   │       │   ├── auth/        # JWT Auth
-│   │       │   ├── tenants/     # Multi-tenant management
-│   │       │   ├── packages/    # Travel packages CRUD
-│   │       │   ├── bookings/    # Booking management
-│   │       │   ├── payments/    # Midtrans integration
-│   │       │   ├── reports/     # Analytics & reports
-│   │       │   └── users/       # User management
-│   │       ├── common/          # Guards, decorators
-│   │       └── database/        # Migrations, seeds
+│   │       │   ├── auth/
+│   │       │   ├── tenants/
+│   │       │   ├── packages/
+│   │       │   ├── bookings/
+│   │       │   ├── payments/
+│   │       │   ├── reports/
+│   │       │   └── users/
+│   │       ├── common/
+│   │       └── database/
 │   │
-│   └── frontend/                # Vue 3 SPA
+│   └── frontend/
 │       └── src/
-│           ├── pages/           # Route pages
-│           ├── components/      # Reusable components
-│           ├── stores/          # Pinia stores
-│           ├── composables/     # Vue composables
-│           ├── router/          # Vue Router
-│           └── types/           # TypeScript types
+│           ├── pages/
+│           ├── components/
+│           ├── stores/
+│           ├── composables/
+│           ├── router/
+│           └── types/
 │
 └── docker-compose.yml
 ```
 
 ## 🔑 API Endpoints
 
-| Method | Endpoint                        | Auth  | Deskripsi                |
-| ------ | ------------------------------- | ----- | ------------------------ |
-| POST   | /api/auth/register              | -     | Daftar customer          |
-| POST   | /api/auth/register-tenant       | -     | Daftar agen travel       |
-| POST   | /api/auth/login                 | -     | Login                    |
-| GET    | /api/auth/me                    | JWT   | Info user login          |
-| GET    | /api/packages                   | -     | List paket (public)      |
-| POST   | /api/packages                   | Admin | Buat paket baru          |
-| GET    | /api/bookings                   | JWT   | List booking             |
-| POST   | /api/bookings                   | JWT   | Buat booking             |
-| POST   | /api/payments/create/:bookingId | JWT   | Buat pembayaran Midtrans |
-| POST   | /api/payments/webhook/midtrans  | -     | Midtrans webhook         |
-| GET    | /api/reports/dashboard          | Admin | Statistik dashboard      |
+| Method | Endpoint                        | Auth  | Description                    |
+| ------ | ------------------------------- | ----- | ------------------------------ |
+| POST   | /api/auth/register              | -     | Register Customer              |
+| POST   | /api/auth/register-tenant       | -     | Register Travel Agency         |
+| POST   | /api/auth/login                 | -     | User Login                     |
+| GET    | /api/auth/me                    | JWT   | Get Current User Information   |
+| GET    | /api/packages                   | -     | Public Package Listing         |
+| POST   | /api/packages                   | Admin | Create Travel Package          |
+| GET    | /api/bookings                   | JWT   | List User Bookings             |
+| POST   | /api/bookings                   | JWT   | Create Booking                 |
+| POST   | /api/payments/create/:bookingId | JWT   | Create Midtrans Payment        |
+| POST   | /api/payments/webhook/midtrans  | -     | Midtrans Webhook Endpoint      |
+| GET    | /api/reports/dashboard          | Admin | Dashboard Statistics & Reports |
 
-## ⚙️ Konfigurasi Midtrans
+## ⚙️ Midtrans Configuration
 
-1. Daftar akun di https://midtrans.com
-2. Ambil Server Key & Client Key dari dashboard Midtrans
-3. Isi di `.env` atau di halaman Settings per-tenant
-4. Set webhook URL: `https://your-domain.com/api/payments/webhook/midtrans`
+1. Create an account at https://midtrans.com
+2. Obtain your Server Key and Client Key from the Midtrans dashboard
+3. Configure the keys in the `.env` file or through each tenant's Settings page
+4. Configure the webhook URL:
 
-## 🌐 Multi-tenant
+```text
+https://your-domain.com/api/payments/webhook/midtrans
+```
 
-Setiap tenant memiliki:
+## 🌐 Multi-Tenant Architecture
 
-- Slug unik (digunakan sebagai identifikasi)
-- Dashboard admin terpisah
-- Konfigurasi Midtrans sendiri
-- Data paket, booking, dan customer terpisah
+Each tenant has:
+
+- A unique slug used as its identifier
+- A dedicated administrative dashboard
+- Independent Midtrans payment configuration
+- Isolated travel packages, bookings, and customer data
+- Separate business operations and reporting environment
+
+## 📄 Disclaimer
+
+This repository is presented for portfolio and demonstration purposes only. All rights belong to their respective owners. If you would like to discuss similar projects, consulting opportunities, freelance work, or full-time positions, feel free to contact me through the information provided above.
