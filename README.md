@@ -1,8 +1,11 @@
 ### Portfolio Project by Rahmat Hidayat
 
-#### rahmat6hidayat@gmail.com / linkedin.com/in/rahmat6hidayat / Jakarta, Indonesia
+- **📧 Email**: rahmat6hidayat@gmail.com
+- **💼 LinkedIn**: https://www.linkedin.com/in/rahmat6hidayat
+- **📍 Location**: Jakarta, Indonesia
 
 This repository is part of my professional portfolio and demonstrates practical experienced.
+
 Available for freelance, consulting, contract, and full-time opportunities.
 
 # 🌴 Travel SaaS - Multi-tenant Travel Platform
@@ -80,6 +83,7 @@ npm run dev
 | ------------ | ------------------------- | ------------- |
 | Super Admin  | superadmin@travelsaas.com | superadmin123 |
 | Tenant Admin | admin@demo-travel.com     | admin123      |
+| Customer     | budi.santoso@gmail.com    | customer123   |
 
 ## 📁 Struktur Project
 
