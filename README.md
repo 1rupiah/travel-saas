@@ -1,3 +1,15 @@
+[!NOTE]
+**Portfolio Project by Rahmat Hidayat**
+
+This repository is part of my professional portfolio and demonstrates practical experience in software development, automation, business analysis, and project delivery.
+
+📧 rahmat6hidayat@gmail.com  
+💼 https://linkedin.com/in/rahmat6hidayat
+
+Available for freelance, consulting, contract, and full-time opportunities.
+
+-
+
 # 🌴 Travel SaaS - Multi-tenant Travel Platform
 
 Platform travel berbasis SaaS dengan arsitektur multi-tenant. Setiap agen travel mendapat subdomain dan dashboard terpisah.
