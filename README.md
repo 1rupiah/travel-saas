@@ -1,7 +1,8 @@
-**Portfolio Project by Rahmat Hidayat** - rahmat6hidayat@gmail.com / linkedin.com/in/rahmat6hidayat / Jakarta, Indonesia
+### Portfolio Project by Rahmat Hidayat
+
+#### rahmat6hidayat@gmail.com / linkedin.com/in/rahmat6hidayat / Jakarta, Indonesia
 
 This repository is part of my professional portfolio and demonstrates practical experienced.
-
 Available for freelance, consulting, contract, and full-time opportunities.
 
 # 🌴 Travel SaaS - Multi-tenant Travel Platform
